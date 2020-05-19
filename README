@@ -22,6 +22,12 @@ React Native Vector Icons kurulumu :
 
 npm install --save react-native-vector-icons
 
+NOT : 
+aşağıdaki adımlar gerekli olmayabilir, normalde native kısmı olan kütüphaneler
+otomatize ediyor kurulumu eğer run ettiğinizde ve iconları kullandığınızda hata alıyorsanız
+bu detaylara girmeniz daha mantıklı olacaktır.
+
+
 sonrasında node_modules/react-native-vector-icons klasörüne gidip Fonts klasörünü 
 XCode içine sürükleyip ekleyin. Eklerken çıkan modalda "Add to targets" altındaki 
 "Create groups" seçeneğinin seçili olmasına dikkat edin.
