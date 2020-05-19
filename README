@@ -1,0 +1,57 @@
+
+React Navigation kurulumu :
+
+npm install @react-navigation/native
+npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+==============
+
+Redux kurulumu :
+
+npm install react-redux
+
+===============
+
+Redux Thunk kurulumu :
+
+npm install redux-thunk
+
+===============
+
+React Native Vector Icons kurulumu :
+
+npm install --save react-native-vector-icons
+
+sonrasında node_modules/react-native-vector-icons klasörüne gidip Fonts klasörünü 
+XCode içine sürükleyip ekleyin. Eklerken çıkan modalda "Add to targets" altındaki 
+"Create groups" seçeneğinin seçili olmasına dikkat edin.
+
+Info.plist dosyasını açın ve içinde en altında uygun bir yere aşağıdaki tanımları
+ekleyin.
+
+<key>UIAppFonts</key>
+<array>
+  <string>AntDesign.ttf</string>
+  <string>Entypo.ttf</string>
+  <string>EvilIcons.ttf</string>
+  <string>Feather.ttf</string>
+  <string>FontAwesome.ttf</string>
+  <string>FontAwesome5_Brands.ttf</string>
+  <string>FontAwesome5_Regular.ttf</string>
+  <string>FontAwesome5_Solid.ttf</string>
+  <string>Foundation.ttf</string>
+  <string>Ionicons.ttf</string>
+  <string>MaterialIcons.ttf</string>
+  <string>MaterialCommunityIcons.ttf</string>
+  <string>SimpleLineIcons.ttf</string>
+  <string>Octicons.ttf</string>
+  <string>Zocial.ttf</string>
+</array>
+
+bu sayede iOS native projesi iconların font dosyalarını görebilecek.
+
+===============
+
+React Native Modal kurulumu :
+
+npm i react-native-modal
