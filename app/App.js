@@ -23,13 +23,7 @@ const App: () => React$Node = () => {
               if (route.name === "Home") {
                 return <Ionicons name={"ios-home"} size={size} color={color} />;
               } else if (route.name === "Settings") {
-                return (
-                  <SimpleLineIcons
-                    name={"settings"}
-                    size={size}
-                    color={color}
-                  />
-                );
+                return <SimpleLineIcons name={"settings"} size={size} color={color} />;
               }
               return null;
             },
