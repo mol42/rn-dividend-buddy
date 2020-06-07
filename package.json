@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "run-mock-server": "cd mock-server && node server.js"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -32,6 +33,7 @@
     "eslint": "^7.0.0",
     "jest": "^26.0.1",
     "metro-react-native-babel-preset": "^0.59.0",
+    "mockserver": "^3.1.1",
     "react-test-renderer": "16.11.0"
   },
   "jest": {
