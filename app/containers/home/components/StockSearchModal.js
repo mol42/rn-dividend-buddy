@@ -4,10 +4,12 @@ import Modal from "react-native-modal";
 
 const StockItem = (props) => {
   return (
-    <View style={{ padding: 5, borderBottomColor: "black", borderBottomWidth: 0.5 }}>
-      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#318d71" }}>{props.ticker}</Text>
-      <Text style={{ fontSize: 16, color: "white" }}>{props.name}</Text>
-    </View>
+    <TouchableOpacity onPress={props.onPress}>
+      <View style={{ padding: 5, borderBottomColor: "black", borderBottomWidth: 0.5 }}>
+        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#318d71" }}>{props.ticker}</Text>
+        <Text style={{ fontSize: 16, color: "white" }}>{props.name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -36,7 +38,10 @@ export default function StockSearchModal(props) {
         <View style={{ flex: 1, backgroundColor: "#1c1c1e" }}>
           <FlatList
             data={props.data}
-            renderItem={({ item }) => <StockItem ticker={item.ticker} name={item.name} />}
+            keyExtractor={(item) => item.ticker}
+            renderItem={({ item }) => (
+              <StockItem ticker={item.ticker} name={item.name} onPress={() => props.onStockPress(item)} />
+            )}
           ></FlatList>
         </View>
       </SafeAreaView>

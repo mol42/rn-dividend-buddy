@@ -52,7 +52,16 @@ export default function HomeScreen() {
       <View style={{ flex: 1, backgroundColor: "black" }}>
         <Text style={{ color: "white", fontSize: 16 }}>Total Stocks : {allStocks.length}</Text>
       </View>
-      {isModalVisible && <StockSearchModal data={allStocks} onClose={() => setModalVisibility(false)} />}
+      {isModalVisible && (
+        <StockSearchModal
+          data={allStocks}
+          onClose={() => setModalVisibility(false)}
+          onStockPress={(stock) => {
+            setModalVisibility(false);
+            console.log(stock);
+          }}
+        />
+      )}
     </SafeAreaView>
   );
 }
