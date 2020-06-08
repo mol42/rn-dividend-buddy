@@ -1,7 +1,15 @@
 import React from "react";
-import { View, Text, SafeAreaView, TextInput } from "react-native";
+import { View, Text, SafeAreaView, TextInput, FlatList, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
-import { TouchableOpacity } from "react-native-gesture-handler";
+
+const StockItem = (props) => {
+  return (
+    <View style={{ padding: 5, borderBottomColor: "black", borderBottomWidth: 0.5 }}>
+      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#318d71" }}>{props.ticker}</Text>
+      <Text style={{ fontSize: 16, color: "white" }}>{props.name}</Text>
+    </View>
+  );
+};
 
 export default function StockSearchModal(props) {
   return (
@@ -25,7 +33,12 @@ export default function StockSearchModal(props) {
             <Text style={{ color: "#318d71", fontSize: 18 }}>Cancel</Text>
           </TouchableOpacity>
         </View>
-        <View style={{ flex: 1, backgroundColor: "#1c1c1e" }}></View>
+        <View style={{ flex: 1, backgroundColor: "#1c1c1e" }}>
+          <FlatList
+            data={props.data}
+            renderItem={({ item }) => <StockItem ticker={item.ticker} name={item.name} />}
+          ></FlatList>
+        </View>
       </SafeAreaView>
     </Modal>
   );
