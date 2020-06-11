@@ -20,7 +20,7 @@ export default function StockSearchModal(props) {
         <View style={{ flexDirection: "row", height: 60, padding: 10 }}>
           <TextInput
             style={{ flex: 1, padding: 5, backgroundColor: "#1c1c1e", borderRadius: 10, color: "white", fontSize: 14 }}
-            onChangeText={() => {}}
+            onChangeText={props.onStockSearch}
           ></TextInput>
           <TouchableOpacity
             style={{

@@ -5,12 +5,13 @@ import EvilIcons from "react-native-vector-icons/EvilIcons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import StockSearchModal from "./components/StockSearchModal";
 import { loadAllStocks } from "../../redux/modules/stocks/thunkActions";
+import * as $SA from "../../redux/modules/stocks/actionTypes";
+import { $A } from "../../redux/helper";
 
 export default function HomeScreen() {
   const [isModalVisible, setModalVisibility] = useState(false);
-  const user = useSelector((state) => state.profile.user);
   const allStocks = useSelector((state) => state.stocks.allStocks);
-  const { name } = user;
+  const filteredStocks = useSelector((state) => state.stocks.filteredStocks);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -54,11 +55,12 @@ export default function HomeScreen() {
       </View>
       {isModalVisible && (
         <StockSearchModal
-          data={allStocks}
-          onClose={() => setModalVisibility(false)}
-          onStockPress={(stock) => {
+          data={filteredStocks}
+          onStockSearch={(text) => dispatch($A($SA.FILTER_STOCKS, text))}
+          onStockPress={(stock) => setModalVisibility(false)}
+          onClose={() => {
+            dispatch($A($SA.RESET_FILTER));
             setModalVisibility(false);
-            console.log(stock);
           }}
         />
       )}
