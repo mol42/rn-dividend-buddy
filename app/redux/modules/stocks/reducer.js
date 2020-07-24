@@ -3,6 +3,8 @@ import * as $SA from "./actionTypes";
 const initialState = {
   allStocks: [],
   filteredStocks: [],
+  selectedStocks: [],
+  stockDataInSelectedStocks: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -30,6 +32,49 @@ export default function reducer(state = initialState, action) {
         filteredStocks: state.allStocks,
       };
     }
+    case $SA.FIND_STOCK_IN_SELECTED: {
+      let stockDataInSelectedStocks = state.selectedStocks.find((stockData) => stockData.stock.ticker.startsWith(payload.toUpperCase()));
+      return {
+        ...state,
+        stockDataInSelectedStocks,
+      };
+    }
+    case $SA.ADD_OR_EDIT_STOCK_TO_SELECTED: {
+      let stockToAddOrEdit = payload.stock;
+      let newStockCount = payload.stockCount;
+      let stockInSelectedStocks = state.selectedStocks.find(
+        (stockData) => stockData.stock.ticker == stockToAddOrEdit.ticker.toUpperCase()
+      );
+      
+      let isAddMode = !stockInSelectedStocks;
+      let updatedSelectedStocks;
+
+      if (isAddMode) {
+        // yeni stock'u diziye ekleriz
+        const newStockData = { stock: stockToAddOrEdit, stockCount: newStockCount };
+        updatedSelectedStocks = [...state.selectedStocks, newStockData];
+      } else {
+        // var olan selectedStocks dizisi içinde dolaşıp update edilmesi gereken stock'u
+        // update ederiz..
+        updatedSelectedStocks = state.selectedStocks.map((stockData) => {
+          if (stockData.stock.ticker == stockToAddOrEdit.ticker.toUpperCase()) {
+            return {
+              ...stockData,
+              stockCount: newStockCount,
+            };
+          } else {
+            return stock;
+          }
+        });
+      }
+
+      return {
+        ...state,
+        selectedStocks: updatedSelectedStocks,
+        foundStock: null,
+      };
+    }
+
     default: {
       return state;
     }

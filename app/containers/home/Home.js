@@ -4,12 +4,14 @@ import { Text, View, ScrollView, FlatList, SafeAreaView, TouchableOpacity } from
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import StockSearchModal from "./components/StockSearchModal";
+import StockEditModal from "./components/StockEditModal";
 import { loadAllStocks } from "../../redux/modules/stocks/thunkActions";
 import * as $SA from "../../redux/modules/stocks/actionTypes";
 import { $A } from "../../redux/helper";
 
 export default function HomeScreen() {
   const [isModalVisible, setModalVisibility] = useState(false);
+  const [selectedStock, setSelectedStock] = useState(null);
   const allStocks = useSelector((state) => state.stocks.allStocks);
   const filteredStocks = useSelector((state) => state.stocks.filteredStocks);
   const dispatch = useDispatch();
@@ -57,10 +59,22 @@ export default function HomeScreen() {
         <StockSearchModal
           data={filteredStocks}
           onStockSearch={(text) => dispatch($A($SA.FILTER_STOCKS, text))}
-          onStockPress={(stock) => setModalVisibility(false)}
+          onStockPress={(stock) => {
+            setModalVisibility(false);
+            setSelectedStock(stock);
+          }}
           onClose={() => {
             dispatch($A($SA.RESET_FILTER));
             setModalVisibility(false);
+          }}
+        />
+      )}
+      {selectedStock && (
+        <StockEditModal
+          stock={selectedStock}
+          onClose={() => {
+            dispatch($A($SA.RESET_FOUND_STOCK));
+            setSelectedStock(null);
           }}
         />
       )}
