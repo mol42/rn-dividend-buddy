@@ -9,11 +9,31 @@ import { loadAllStocks } from "../../redux/modules/stocks/thunkActions";
 import * as $SA from "../../redux/modules/stocks/actionTypes";
 import { $A } from "../../redux/helper";
 
+const SelectedStockItem = (props) => {
+  let { name, ticker } = props.stock;
+  return (
+    <TouchableOpacity
+      style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}
+      onPress={props.onPress}
+    >
+      <View style={{ padding: 5, borderBottomColor: "black", borderBottomWidth: 0.5 }}>
+        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#318d71" }}>{ticker}</Text>
+        <Text style={{ fontSize: 16, color: "white" }}>{name}</Text>
+      </View>
+      <View style={{ padding: 10 }}>
+        <Text style={{ fontSize: 32, fontWeight: "bold", color: "gray" }}>{props.count}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
 export default function HomeScreen() {
   const [isModalVisible, setModalVisibility] = useState(false);
   const [selectedStock, setSelectedStock] = useState(null);
   const allStocks = useSelector((state) => state.stocks.allStocks);
   const filteredStocks = useSelector((state) => state.stocks.filteredStocks);
+  const selectedStocks = useSelector((state) => state.stocks.selectedStocks);
+  const dividends = useSelector((state) => state.stocks.dividends);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,21 +59,34 @@ export default function HomeScreen() {
 
         <View style={{ height: 90, justifyContent: "center", alignItems: "center" }}>
           <Text style={{ fontSize: 20, color: "white" }}>Annually</Text>
-          <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>--</Text>
+          <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{dividends.annually || "--"}</Text>
         </View>
         <View style={{ height: 90, flexDirection: "row" }}>
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <Text style={{ fontSize: 20, color: "white" }}>Monthly</Text>
-            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>--</Text>
+            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{dividends.monthly || "--"}</Text>
           </View>
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <Text style={{ fontSize: 20, color: "white" }}>Daily</Text>
-            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>--</Text>
+            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{dividends.daily || "--"}</Text>
           </View>
         </View>
       </View>
       <View style={{ flex: 1, backgroundColor: "black" }}>
-        <Text style={{ color: "white", fontSize: 16 }}>Total Stocks : {allStocks.length}</Text>
+        <FlatList
+          data={selectedStocks}
+          keyExtractor={(item) => item.stock.ticker}
+          renderItem={({ item }) => (
+            <SelectedStockItem
+              stock={item.stock}
+              count={item.count}
+              onPress={() => {
+                setModalVisibility(false);
+                setSelectedStock(item.stock);
+              }}
+            />
+          )}
+        ></FlatList>
       </View>
       {isModalVisible && (
         <StockSearchModal

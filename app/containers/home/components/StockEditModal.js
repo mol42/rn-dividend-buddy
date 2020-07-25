@@ -62,7 +62,7 @@ export default function StockEditModal(props) {
                   dispatch(
                     $A($SA.ADD_OR_EDIT_STOCK_TO_SELECTED, {
                       stock: props.stock,
-                      stockCount: Number(stockCount),
+                      count: Number(stockCount),
                     })
                   );
                   props.onClose();
