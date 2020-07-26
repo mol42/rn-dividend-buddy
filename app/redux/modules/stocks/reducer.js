@@ -13,12 +13,12 @@ const initialState = {
   selectedStockInfo: null,
 };
 
-const dividendCalculator = function (accumulator, selectedStock) {
-  return accumulator + selectedStock.stock.dividend * selectedStock.count;
+const dividendCalculator = function (accumulator, stockInfo) {
+  return accumulator + stockInfo.stock.dividend * stockInfo.count;
 };
 
-function calculateDividens(selectedStocks) {
-  let annuallyDividendsTotal = selectedStocks.reduce(dividendCalculator, 0);
+function calculateDividens(addedStocks) {
+  let annuallyDividendsTotal = addedStocks.reduce(dividendCalculator, 0);
 
   return {
     annually: annuallyDividendsTotal,
@@ -97,7 +97,7 @@ export default function reducer(state = initialState, action) {
               count: newStockCount,
             };
           } else {
-            return stock;
+            return stockData;
           }
         });
       }

@@ -27,6 +27,13 @@ const SelectedStockItem = (props) => {
   );
 };
 
+function formatDividend(number) {
+  if (!number) {
+    return "--";
+  }
+  return number.toFixed(2);
+}
+
 export default function HomeScreen() {
   const [isModalVisible, setModalVisibility] = useState(false);
   const allStocks = useSelector((state) => state.stocks.allStocks);
@@ -59,16 +66,18 @@ export default function HomeScreen() {
 
         <View style={{ height: 90, justifyContent: "center", alignItems: "center" }}>
           <Text style={{ fontSize: 20, color: "white" }}>Annually</Text>
-          <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{dividends.annually || "--"}</Text>
+          <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{formatDividend(dividends.annually)}</Text>
         </View>
         <View style={{ height: 90, flexDirection: "row" }}>
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <Text style={{ fontSize: 20, color: "white" }}>Monthly</Text>
-            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{dividends.monthly || "--"}</Text>
+            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
+              {formatDividend(dividends.monthly)}
+            </Text>
           </View>
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <Text style={{ fontSize: 20, color: "white" }}>Daily</Text>
-            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{dividends.daily || "--"}</Text>
+            <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>{formatDividend(dividends.daily)}</Text>
           </View>
         </View>
       </View>
@@ -97,8 +106,8 @@ export default function HomeScreen() {
             dispatch($A($SA.SET_SELECTED_STOCK, stock));
           }}
           onClose={() => {
-            dispatch($A($SA.RESET_FILTER));
             setModalVisibility(false);
+            dispatch($A($SA.RESET_FILTER));
           }}
         />
       )}
@@ -106,7 +115,7 @@ export default function HomeScreen() {
         <StockEditModal
           stock={selectedStock}
           onClose={() => {
-            dispatch($A($SA.RESET_SELECTED_STOCK, null));
+            dispatch($A($SA.RESET_SELECTED_STOCK));
           }}
         />
       )}

@@ -6,12 +6,11 @@ import * as $SA from "../../../redux/modules/stocks/actionTypes";
 import { $A } from "../../../redux/helper";
 
 export default function StockEditModal(props) {
-  const addedStocks = useSelector((state) => state.stocks.addedStocks);
-  const selectedStockInfo = useSelector((state) => state.stocks.selectedStockInfo);
-  const [stockCount, setStockCount] = useState("");
-  const dispatch = useDispatch();
   const { stock } = props;
-  const actualStockCountText = stockCount || (selectedStockInfo ? String(selectedStockInfo.count) : "");
+  const selectedStockInfo = useSelector((state) => state.stocks.selectedStockInfo);
+  const addedStocks = useSelector((state) => state.stocks.addedStocks);
+  const [stockCount, setStockCount] = useState(selectedStockInfo ? selectedStockInfo.count : 0);
+  const dispatch = useDispatch();
 
   return (
     <Modal isVisible={true} style={{ margin: 0, backgroundColor: "black" }}>
@@ -49,7 +48,7 @@ export default function StockEditModal(props) {
                 fontSize: 14,
               }}
               keyboardType={"decimal-pad"}
-              value={actualStockCountText}
+              value={String(stockCount)}
               onChangeText={(text) => setStockCount(text)}
             ></TextInput>
             <View style={{ padding: 10, justifyContent: "center", alignItems: "center" }}>
