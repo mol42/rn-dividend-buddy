@@ -6,17 +6,12 @@ import * as $SA from "../../../redux/modules/stocks/actionTypes";
 import { $A } from "../../../redux/helper";
 
 export default function StockEditModal(props) {
-  const selectedStocks = useSelector((state) => state.stocks.selectedStocks);
-  const stockDataInSelectedStocks = useSelector((state) => state.stocks.stockDataInSelectedStocks);
+  const addedStocks = useSelector((state) => state.stocks.addedStocks);
+  const selectedStockInfo = useSelector((state) => state.stocks.selectedStockInfo);
   const [stockCount, setStockCount] = useState("");
   const dispatch = useDispatch();
   const { stock } = props;
-  const actualStockCountText =
-    stockCount || (stockDataInSelectedStocks ? String(stockDataInSelectedStocks.stockCount) : "");
-
-  useEffect(() => {
-    dispatch($A($SA.FIND_STOCK_IN_SELECTED, props.stock.ticker));
-  }, stockDataInSelectedStocks);
+  const actualStockCountText = stockCount || (selectedStockInfo ? String(selectedStockInfo.count) : "");
 
   return (
     <Modal isVisible={true} style={{ margin: 0, backgroundColor: "black" }}>
@@ -41,6 +36,8 @@ export default function StockEditModal(props) {
           </View>
           <View style={{ paddingLeft: 10, justifyContent: "center", alignItems: "center" }}>
             <Text style={{ fontSize: 16, color: "white", marginBottom: 20 }}>{stock && stock.name}</Text>
+          </View>
+          <View style={{ paddingLeft: 10, justifyContent: "center", alignItems: "center" }}>
             <TextInput
               style={{
                 width: 200,

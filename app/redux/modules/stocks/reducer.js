@@ -1,15 +1,16 @@
 import * as $SA from "./actionTypes";
 
 const initialState = {
-  allStocks: [],
+  allStocks: [], // [{ticker : .., name : ...}]
   filteredStocks: [],
-  selectedStocks: [],
+  addedStocks: [], // {stock : {ticker : .., name : ...}, count : XXX}
   dividends: {
     annually: null,
     monthly: null,
     daily: null,
   },
-  stockDataInSelectedStocks: null,
+  selectedStock: null,
+  selectedStockInfo: null,
 };
 
 const dividendCalculator = function (accumulator, selectedStock) {
@@ -51,33 +52,45 @@ export default function reducer(state = initialState, action) {
         filteredStocks: state.allStocks,
       };
     }
-    case $SA.FIND_STOCK_IN_SELECTED: {
-      let stockDataInSelectedStocks = state.selectedStocks.find((stockData) =>
-        stockData.stock.ticker.startsWith(payload.toUpperCase())
+    //
+    case $SA.SET_SELECTED_STOCK: {
+      let selectedStock = payload;
+      let selectedStockInfo = state.addedStocks.find((stockData) =>
+        stockData.stock.ticker.startsWith(selectedStock.ticker.toUpperCase())
       );
+
       return {
         ...state,
-        stockDataInSelectedStocks,
+        selectedStock,
+        selectedStockInfo,
+      };
+    }
+    case $SA.RESET_SELECTED_STOCK: {
+      return {
+        ...state,
+        selectedStock: null,
+        selectedStockInfo: null,
       };
     }
     case $SA.ADD_OR_EDIT_STOCK_TO_SELECTED: {
       let stockToAddOrEdit = payload.stock;
       let newStockCount = payload.count;
-      let stockInSelectedStocks = state.selectedStocks.find(
+
+      let stockInfo = state.addedStocks.find(
         (stockData) => stockData.stock.ticker == stockToAddOrEdit.ticker.toUpperCase()
       );
 
-      let isAddMode = !stockInSelectedStocks;
-      let updatedSelectedStocks;
+      let isEditMode = !!stockInfo;
+      let updatedAddedStocks;
 
-      if (isAddMode) {
+      if (!isEditMode) {
         // yeni stock'u diziye ekleriz
         const newStockData = { stock: stockToAddOrEdit, count: newStockCount };
-        updatedSelectedStocks = [...state.selectedStocks, newStockData];
+        updatedAddedStocks = [...state.addedStocks, newStockData];
       } else {
         // var olan selectedStocks dizisi içinde dolaşıp update edilmesi gereken stock'u
         // update ederiz..
-        updatedSelectedStocks = state.selectedStocks.map((stockData) => {
+        updatedAddedStocks = state.addedStocks.map((stockData) => {
           if (stockData.stock.ticker == stockToAddOrEdit.ticker.toUpperCase()) {
             return {
               ...stockData,
@@ -91,12 +104,13 @@ export default function reducer(state = initialState, action) {
 
       return {
         ...state,
-        selectedStocks: updatedSelectedStocks,
-        dividends: calculateDividens(updatedSelectedStocks),
-        foundStock: null,
+        addedStocks: updatedAddedStocks,
+        dividends: calculateDividens(updatedAddedStocks),
+        selectedStock: null,
+        selectedStockInfo: null,
       };
     }
-
+    //
     default: {
       return state;
     }

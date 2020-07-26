@@ -29,10 +29,10 @@ const SelectedStockItem = (props) => {
 
 export default function HomeScreen() {
   const [isModalVisible, setModalVisibility] = useState(false);
-  const [selectedStock, setSelectedStock] = useState(null);
   const allStocks = useSelector((state) => state.stocks.allStocks);
   const filteredStocks = useSelector((state) => state.stocks.filteredStocks);
-  const selectedStocks = useSelector((state) => state.stocks.selectedStocks);
+  const addedStocks = useSelector((state) => state.stocks.addedStocks);
+  const selectedStock = useSelector((state) => state.stocks.selectedStock);
   const dividends = useSelector((state) => state.stocks.dividends);
   const dispatch = useDispatch();
 
@@ -74,7 +74,7 @@ export default function HomeScreen() {
       </View>
       <View style={{ flex: 1, backgroundColor: "black" }}>
         <FlatList
-          data={selectedStocks}
+          data={addedStocks}
           keyExtractor={(item) => item.stock.ticker}
           renderItem={({ item }) => (
             <SelectedStockItem
@@ -82,7 +82,7 @@ export default function HomeScreen() {
               count={item.count}
               onPress={() => {
                 setModalVisibility(false);
-                setSelectedStock(item.stock);
+                dispatch($A($SA.SET_SELECTED_STOCK, item.stock));
               }}
             />
           )}
@@ -94,7 +94,7 @@ export default function HomeScreen() {
           onStockSearch={(text) => dispatch($A($SA.FILTER_STOCKS, text))}
           onStockPress={(stock) => {
             setModalVisibility(false);
-            setSelectedStock(stock);
+            dispatch($A($SA.SET_SELECTED_STOCK, stock));
           }}
           onClose={() => {
             dispatch($A($SA.RESET_FILTER));
@@ -106,8 +106,7 @@ export default function HomeScreen() {
         <StockEditModal
           stock={selectedStock}
           onClose={() => {
-            dispatch($A($SA.RESET_FOUND_STOCK));
-            setSelectedStock(null);
+            dispatch($A($SA.RESET_SELECTED_STOCK, null));
           }}
         />
       )}
