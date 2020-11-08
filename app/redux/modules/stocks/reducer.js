@@ -1,3 +1,4 @@
+import { $A } from "../../helper";
 import * as $SA from "./actionTypes";
 
 const initialState = {
@@ -29,6 +30,10 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredStocks: state.allStocks,
       };
+    }
+    case $SA.LOAD_ALL_STOCKS : {
+      console.log("stocks reducer LOAD_ALL_STOCKS")
+      return state;
     }
     default: {
       return state;

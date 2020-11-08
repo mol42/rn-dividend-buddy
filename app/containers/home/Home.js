@@ -4,7 +4,9 @@ import { Text, View, ScrollView, FlatList, SafeAreaView, TouchableOpacity } from
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import StockSearchModal from "./components/StockSearchModal";
-import { loadAllStocks } from "../../redux/modules/stocks/thunkActions";
+// redux-saga yapisinda ozel metod import edip cagirmamiza
+// gerek kalmiyor dolayisi ile bu tur bir import gerekli degil...
+// import { loadAllStocks } from "../../redux/modules/stocks/thunkActions";
 import * as $SA from "../../redux/modules/stocks/actionTypes";
 import { $A } from "../../redux/helper";
 
@@ -15,7 +17,12 @@ export default function HomeScreen() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadAllStocks());
+    // dispatch(loadAllStocks()); // eski redux-thunk cagrisi.
+
+    // saga'lar action'lari dinliyor dolayisi ile ozel bir metod vs cagirmamiza
+    // gerek kalmiyor. action dispatch edince eger o action icin saga tanimlamis
+    // isek bu action ile iliskili saga da calisiyor.
+    dispatch($A($SA.LOAD_ALL_STOCKS));
   }, []);
 
   return (

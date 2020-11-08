@@ -11,14 +11,14 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		442CC5EDCDC881EAA2982E00 /* libPods-dividend_buddy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D19B20F5BF43EF72F0EA68F1 /* libPods-dividend_buddy.a */; };
+		CA07D3C1347F608E815D632A /* libPods-dividend_buddy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 021B62AD537073A9B16F9771 /* libPods-dividend_buddy.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* dividend_buddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dividend_buddyTests.m; sourceTree = "<group>"; };
-		013EFECA6F69B6142A9E3732 /* Pods-dividend_buddy-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy-tvOS.release.xcconfig"; path = "Target Support Files/Pods-dividend_buddy-tvOS/Pods-dividend_buddy-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		021B62AD537073A9B16F9771 /* libPods-dividend_buddy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dividend_buddy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* dividend_buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dividend_buddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = dividend_buddy/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = dividend_buddy/AppDelegate.m; sourceTree = "<group>"; };
@@ -26,19 +26,10 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dividend_buddy/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = dividend_buddy/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dividend_buddy/main.m; sourceTree = "<group>"; };
-		23F0A433D65921FC348509C3 /* Pods-dividend_buddy-dividend_buddyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy-dividend_buddyTests.release.xcconfig"; path = "Target Support Files/Pods-dividend_buddy-dividend_buddyTests/Pods-dividend_buddy-dividend_buddyTests.release.xcconfig"; sourceTree = "<group>"; };
-		29DF64ECDAEA2C2138815F7B /* Pods-dividend_buddy-dividend_buddyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy-dividend_buddyTests.debug.xcconfig"; path = "Target Support Files/Pods-dividend_buddy-dividend_buddyTests/Pods-dividend_buddy-dividend_buddyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3693A60B972FA6929E25EA70 /* Pods-dividend_buddy-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-dividend_buddy-tvOSTests/Pods-dividend_buddy-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		39CFDA8DFFC694427B72F187 /* Pods-dividend_buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy.debug.xcconfig"; path = "Target Support Files/Pods-dividend_buddy/Pods-dividend_buddy.debug.xcconfig"; sourceTree = "<group>"; };
-		3EC126C783CBAA8D7976985D /* Pods-dividend_buddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy.release.xcconfig"; path = "Target Support Files/Pods-dividend_buddy/Pods-dividend_buddy.release.xcconfig"; sourceTree = "<group>"; };
-		6F080DC442CA7F0ED2D7A3C2 /* libPods-dividend_buddy-dividend_buddyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dividend_buddy-dividend_buddyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C5D50542F092926E58E996B /* Pods-dividend_buddy-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-dividend_buddy-tvOS/Pods-dividend_buddy-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		7EBF578721A1CC0DFB7879DE /* libPods-dividend_buddy-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dividend_buddy-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F9D151E5E0C9F98DC8FB54B /* libPods-dividend_buddy-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dividend_buddy-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D19B20F5BF43EF72F0EA68F1 /* libPods-dividend_buddy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dividend_buddy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1BF14B300E942D04DFE9FB /* Pods-dividend_buddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy.release.xcconfig"; path = "Target Support Files/Pods-dividend_buddy/Pods-dividend_buddy.release.xcconfig"; sourceTree = "<group>"; };
+		AFDBF3AFEE45F644B559B997 /* Pods-dividend_buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy.debug.xcconfig"; path = "Target Support Files/Pods-dividend_buddy/Pods-dividend_buddy.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F2DF357CFFCDEF5E9C6B17F4 /* Pods-dividend_buddy-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dividend_buddy-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-dividend_buddy-tvOSTests/Pods-dividend_buddy-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				442CC5EDCDC881EAA2982E00 /* libPods-dividend_buddy.a in Frameworks */,
+				CA07D3C1347F608E815D632A /* libPods-dividend_buddy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,10 +80,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				D19B20F5BF43EF72F0EA68F1 /* libPods-dividend_buddy.a */,
-				6F080DC442CA7F0ED2D7A3C2 /* libPods-dividend_buddy-dividend_buddyTests.a */,
-				7EBF578721A1CC0DFB7879DE /* libPods-dividend_buddy-tvOS.a */,
-				9F9D151E5E0C9F98DC8FB54B /* libPods-dividend_buddy-tvOSTests.a */,
+				021B62AD537073A9B16F9771 /* libPods-dividend_buddy.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,14 +118,8 @@
 		FEF89803C15F75A754D2F4AA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				39CFDA8DFFC694427B72F187 /* Pods-dividend_buddy.debug.xcconfig */,
-				3EC126C783CBAA8D7976985D /* Pods-dividend_buddy.release.xcconfig */,
-				29DF64ECDAEA2C2138815F7B /* Pods-dividend_buddy-dividend_buddyTests.debug.xcconfig */,
-				23F0A433D65921FC348509C3 /* Pods-dividend_buddy-dividend_buddyTests.release.xcconfig */,
-				7C5D50542F092926E58E996B /* Pods-dividend_buddy-tvOS.debug.xcconfig */,
-				013EFECA6F69B6142A9E3732 /* Pods-dividend_buddy-tvOS.release.xcconfig */,
-				F2DF357CFFCDEF5E9C6B17F4 /* Pods-dividend_buddy-tvOSTests.debug.xcconfig */,
-				3693A60B972FA6929E25EA70 /* Pods-dividend_buddy-tvOSTests.release.xcconfig */,
+				AFDBF3AFEE45F644B559B997 /* Pods-dividend_buddy.debug.xcconfig */,
+				4A1BF14B300E942D04DFE9FB /* Pods-dividend_buddy.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -149,13 +131,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dividend_buddy" */;
 			buildPhases = (
-				18D4CF64440E833D62721E44 /* [CP] Check Pods Manifest.lock */,
+				B71BB2B3D74D0BF57EBE962F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				A6BDDFB694E0F1EA3F1A50AD /* [CP] Copy Pods Resources */,
+				101C04E2FDA1D8558868B873 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,29 +206,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		18D4CF64440E833D62721E44 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dividend_buddy-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6BDDFB694E0F1EA3F1A50AD /* [CP] Copy Pods Resources */ = {
+		101C04E2FDA1D8558868B873 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,6 +229,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -288,10 +249,33 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dividend_buddy/Pods-dividend_buddy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B71BB2B3D74D0BF57EBE962F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dividend_buddy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -342,7 +326,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39CFDA8DFFC694427B72F187 /* Pods-dividend_buddy.debug.xcconfig */;
+			baseConfigurationReference = AFDBF3AFEE45F644B559B997 /* Pods-dividend_buddy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -369,7 +353,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EC126C783CBAA8D7976985D /* Pods-dividend_buddy.release.xcconfig */;
+			baseConfigurationReference = 4A1BF14B300E942D04DFE9FB /* Pods-dividend_buddy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

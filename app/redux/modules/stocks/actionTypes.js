@@ -2,3 +2,5 @@ export const STORE_ALL_STOCKS = "STORE_ALL_STOCKS";
 
 export const FILTER_STOCKS = "FILTER_STOCKS";
 export const RESET_FILTER = "RESET_FILTER";
+
+export const LOAD_ALL_STOCKS = "LOAD_ALL_STOCKS";
